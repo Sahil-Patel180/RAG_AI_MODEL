@@ -1,9 +1,9 @@
 # Production-Ready RAG AI Agent
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This directory contains the core application for a **production-grade Retrieval-Augmented Generation (RAG) AI Agent** powered by **Google Gemini 2.5 Pro**.  
 It is designed to be scalable, maintainable, and easily deployable as a standalone intelligent service.
-
----
 
 ## Table of Contents
 
@@ -17,9 +17,6 @@ It is designed to be scalable, maintainable, and easily deployable as a standalo
 - [API Endpoints](#api-endpoints)
 - [Configuration](#configuration)
 - [Deployment](#deployment)
-- [License](#license)
-
----
 
 ## Overview
 
@@ -33,8 +30,6 @@ Unlike research prototypes, this version is **production-ready**, featuring:
 - Error handling
 - Modular service layers
 
----
-
 ## Features
 
 - **Gemini 2.5 Pro Integration:** Leverages Google’s latest generative model for high-quality, grounded text generation.
@@ -43,8 +38,6 @@ Unlike research prototypes, this version is **production-ready**, featuring:
 - **Scalable:** Modular design allows independent scaling of components (retriever, LLM handler, vector DB).
 - **Configurable:** All key parameters Gemini API keys, database URIs, model name, etc. are loaded from environment variables.
 - **Extensible:** Supports multimodal retrieval (text + images) and additional features like authentication, caching, or streaming responses.
-
----
 
 ## System Architecture
 
@@ -63,8 +56,6 @@ User → API → Retriever → Vector Store → Gemini 2.5 Pro → API → Respo
 
 ````
 
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -73,8 +64,6 @@ User → API → Retriever → Vector Store → Gemini 2.5 Pro → API → Respo
 - Gemini API access (via Google Cloud)
 - A vector database (e.g., Chroma, Weaviate, or Pinecone)
 - Internet connectivity for Gemini API calls
-
----
 
 ### Installation
 
@@ -106,7 +95,7 @@ User → API → Retriever → Vector Store → Gemini 2.5 Pro → API → Respo
 
    Then open `.env` and add your Gemini credentials and configuration:
 
-   ```ini
+   ```
    # Example .env configuration
    GEMINI_API_KEY="your_google_gemini_api_key_here"
    MODEL_NAME="gemini-2.5-pro"
@@ -122,8 +111,6 @@ User → API → Retriever → Vector Store → Gemini 2.5 Pro → API → Respo
    ```bash
    python ingest_data.py --source "./data"
    ```
-
----
 
 ### Running the Application
 
@@ -141,8 +128,6 @@ http://127.0.0.1:8000/docs
 
 to test API endpoints via the interactive Swagger UI.
 
----
-
 ## API Endpoints
 
 | Endpoint  | Method | Description                                                                        |
@@ -153,7 +138,7 @@ to test API endpoints via the interactive Swagger UI.
 
 Example `POST /query` body:
 
-```json
+```
 {
   "query": "Explain how the RAG architecture improves factual accuracy."
 }
@@ -161,13 +146,11 @@ Example `POST /query` body:
 
 Response:
 
-```json
+```
 {
   "answer": "Retrieval-Augmented Generation reduces hallucination by grounding responses in retrieved factual documents..."
 }
 ```
-
----
 
 ## Configuration
 
@@ -183,8 +166,6 @@ Refer to `.env` for customizing:
 | `CHUNK_SIZE`      | Size of document chunks during ingestion              |
 | `TOP_K`           | Number of top results retrieved from the vector store |
 
----
-
 ## Deployment
 
 This service can be deployed on:
@@ -196,7 +177,7 @@ This service can be deployed on:
 
 Example Docker command:
 
-```bash
+```
 docker build -t rag-gemini-agent .
 docker run -p 8000:8000 --env-file .env rag-gemini-agent
 ```
@@ -206,15 +187,6 @@ Ensure secrets (API keys, DB credentials) are stored securely using:
 * Google Secret Manager (recommended)
 * AWS Secrets Manager
 * `.env` files (for local development only)
-
----
-
-## License
-
-This project is licensed under the **MIT License**.
-Feel free to modify and use it in your own RAG-based projects.
-
----
 
 ### 🔹 Author
 
